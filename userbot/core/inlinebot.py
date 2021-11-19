@@ -30,7 +30,7 @@ from .logger import logging
 LOGS = logging.getLogger(__name__)
 
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
-CATLOGO = "https://telegra.ph/file/493268c1f5ebedc967eba.jpg"
+CATLOGO = "https://telegra.ph/file/75c4657eabbfb2cf08127.png"
 tr = Config.COMMAND_HAND_LER
 
 
@@ -205,7 +205,7 @@ def paginate_help(
     return pairs
 
 
-@catub.tgbot.on(InlineQuery)
+(InlineQuery)
 async def inline_handler(event):  # sourcery no-metrics
     builder = event.builder
     result = None
@@ -226,7 +226,7 @@ async def inline_handler(event):  # sourcery no-metrics
             buttons = [
                 (
                     Button.inline("Stats", data="stats"),
-                    Button.url("Repo", "https://github.com/sandy1709/catuserbot"),
+                    Button.url("❤️", ""),
                 )
             ]
             ALIVE_PIC = gvarstatus("ALIVE_PIC")
@@ -335,7 +335,7 @@ async def inline_handler(event):  # sourcery no-metrics
             buttons = [Button.inline("show message 🔐", data=f"troll_{timestamp}")]
             result = builder.article(
                 title="Troll Message",
-                text=f"Only {sandy} cannot access this message!",
+                text=f"Only {dhananjaya} cannot access this message!",
                 buttons=buttons,
             )
             await event.answer([result] if result else None)
@@ -385,7 +385,7 @@ async def inline_handler(event):  # sourcery no-metrics
             buttons = [Button.inline("show message 🔐", data=f"secret_{timestamp}")]
             result = builder.article(
                 title="secret message",
-                text=f"🔒 A whisper message to {sandy}, Only he/she can open it.",
+                text=f"🔒 A whisper message to {dhananjaya}, Only he/she can open it.",
                 buttons=buttons,
             )
             await event.answer([result] if result else None)
@@ -557,10 +557,10 @@ async def inline_handler(event):  # sourcery no-metrics
     else:
         buttons = [
             (
-                Button.url("Source code", "https://github.com/sandy1709/catuserbot"),
+                Button.url("❤️", ""),
                 Button.url(
                     "Deploy",
-                    "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FMr-confused%2Fcatpack&template=https%3A%2F%2Fgithub.com%2FMr-confused%2Fcatpack",
+                    "https://telegra.ph/file/75c4657eabbfb2cf08127.png",
                 ),
             )
         ]
@@ -576,7 +576,7 @@ async def inline_handler(event):  # sourcery no-metrics
             type="photo",
             title="𝘾𝙖𝙩𝙐𝙨𝙚𝙧𝙗𝙤𝙩",
             description="Deploy yourself",
-            url="https://github.com/sandy1709/catuserbot",
+            url="https://telegra.ph/file/85f3071c31279bcc280ef.jpg",
             thumb=photo,
             content=photo,
             send_message=types.InputBotInlineMessageMediaAuto(
@@ -586,7 +586,7 @@ async def inline_handler(event):  # sourcery no-metrics
         await event.answer([result] if result else None)
 
 
-@catub.tgbot.on(CallbackQuery(data=re.compile(b"close")))
+(CallbackQuery(data=re.compile(b"close")))
 @check_owner
 async def on_plug_in_callback_query_handler(event):
     buttons = [
@@ -595,7 +595,7 @@ async def on_plug_in_callback_query_handler(event):
     await event.edit("Menu Closed", buttons=buttons)
 
 
-@catub.tgbot.on(CallbackQuery(data=re.compile(b"check")))
+(CallbackQuery(data=re.compile(b"check")))
 async def on_plugin_callback_query_handler(event):
     text = f"𝙿𝚕𝚞𝚐𝚒𝚗𝚜: {len(PLG_INFO)}\
         \n𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜: {len(CMD_INFO)}\
@@ -606,7 +606,7 @@ async def on_plugin_callback_query_handler(event):
     await event.answer(text, cache_time=0, alert=True)
 
 
-@catub.tgbot.on(CallbackQuery(data=re.compile(b"(.*)_menu")))
+(CallbackQuery(data=re.compile(b"(.*)_menu")))
 @check_owner
 async def on_plug_in_callback_query_handler(event):
     category = str(event.pattern_match.group(1).decode("UTF-8"))
@@ -617,7 +617,7 @@ async def on_plug_in_callback_query_handler(event):
     await event.edit(text, buttons=buttons)
 
 
-@catub.tgbot.on(
+(
     CallbackQuery(
         data=re.compile(b"back_([a-z]+)_([a-z_1-9]+)_([0-9]+)_?([a-z1-9]+)?_?([0-9]+)?")
     )
@@ -649,14 +649,14 @@ async def on_plug_in_callback_query_handler(event):
     await event.edit(text, buttons=buttons)
 
 
-@catub.tgbot.on(CallbackQuery(data=re.compile(rb"mainmenu")))
+(CallbackQuery(data=re.compile(rb"mainmenu")))
 @check_owner
 async def on_plug_in_callback_query_handler(event):
     _result = main_menu()
     await event.edit(_result[0], buttons=_result[1])
 
 
-@catub.tgbot.on(
+(
     CallbackQuery(data=re.compile(rb"(.*)_prev\((.+?)\)_([a-z]+)_?([a-z]+)?_?(.*)?"))
 )
 @check_owner
@@ -687,7 +687,7 @@ async def on_plug_in_callback_query_handler(event):
     await event.edit(buttons=buttons)
 
 
-@catub.tgbot.on(
+(
     CallbackQuery(data=re.compile(rb"(.*)_next\((.+?)\)_([a-z]+)_?([a-z]+)?_?(.*)?"))
 )
 @check_owner
@@ -715,7 +715,7 @@ async def on_plug_in_callback_query_handler(event):
     await event.edit(buttons=buttons)
 
 
-@catub.tgbot.on(
+(
     CallbackQuery(
         data=re.compile(b"(.*)_cmdhelp_([a-z_1-9]+)_([0-9]+)_([a-z]+)_([0-9]+)")
     )
