@@ -87,7 +87,7 @@ async def iytdl_inline(event):
         await catevent.edit("`Sorry!. Can't find any results`")
 
 
-@catub.tgbot.on(
+(
     CallbackQuery(
         data=re.compile(b"^ytdl_download_(.*)_([\d]+|mkv|mp4|mp3)(?:_(a|v))?")
     )
@@ -182,7 +182,7 @@ async def ytdl_download_callback(c_q: CallbackQuery):  # sourcery no-metrics
     )
 
 
-@catub.tgbot.on(
+(
     CallbackQuery(data=re.compile(b"^ytdl_(listall|back|next|detail)_([a-z0-9]+)_(.*)"))
 )
 @check_owner
