@@ -246,7 +246,7 @@ async def bot_pms_edit(event):  # sourcery no-metrics
                     LOGS.error(str(e))
 
 
-@tgbot.on(events.MessageDeleted)
+(events.MessageDeleted)
 async def handler(event):
     for msg_id in event.deleted_ids:
         users_1 = get_user_reply(msg_id)
@@ -404,7 +404,7 @@ async def send_flood_alert(user_) -> None:
         FloodConfig.ALERT[user_.id]["fa_id"] = fa_msg.id
 
 
-@catub.tgbot.on(CallbackQuery(data=re.compile(b"bot_pm_ban_([0-9]+)")))
+(CallbackQuery(data=re.compile(b"bot_pm_ban_([0-9]+)")))
 @check_owner
 async def bot_pm_ban_cb(c_q: CallbackQuery):
     user_id = int(c_q.pattern_match.group(1))
@@ -446,7 +446,7 @@ def is_flood(uid: int) -> Optional[bool]:
         return True
 
 
-@catub.tgbot.on(CallbackQuery(data=re.compile(b"toggle_bot-antiflood_off$")))
+(CallbackQuery(data=re.compile(b"toggle_bot-antiflood_off$")))
 @check_owner
 async def settings_toggle(c_q: CallbackQuery):
     if gvarstatus("bot_antif") is None:
